@@ -1,0 +1,5 @@
+# ./hosts
+copper.local ansible_user=pi
+#artcam.local
+#octopi.local
+
