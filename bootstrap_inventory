@@ -1,5 +1,10 @@
 # ./hosts
+[desktop]
 copper.local ansible_user=pi
+
+[webcam]
 #artcam.local
+
+[octopi]
 #octopi.local
 
