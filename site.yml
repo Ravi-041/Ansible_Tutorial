@@ -12,50 +12,14 @@
     changed_when: false
     when: ansible_distribution in ["Debian", "Ubuntu"]
 
-#user stuff
 - hosts: all
   become: true
-  tasks:
+  roles:
+    - base
 
-  
-  - name: add ssh key for simone
-    tags: always
-    authorized_key:
-      user: simone
-      key: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHEJgRcqFAbcKZHoQ7roda5/au2mYM1AzaBcpGo/ZN9e ansible"
-
-
-# install packages
 - hosts: desktop
   become: true
-  tasks:
-  
-  - name: copy default html file
-    tags: apache
-    copy:
-      src: default_site.html
-      dest: /home/pi/index.html
-      owner: root
-      group: root
-      mode: 0644
-
-  - name: change body line in html file
-    tags: apache
-    lineinfile:
-      path: /home/pi/change.txt
-      regexp: '^Now'
-      line: Ansible is can be awesome
-
-# install packages
-
-  - name: install package
-    tags: debian, ubuntu, git, unzip
-    package:
-      name:
-        - git
-        - unzip
-      state: latest
-    when: ansible_distribution in ["Debian", "Ubuntu"]
-
+  roles:
+    - desktop
 
 

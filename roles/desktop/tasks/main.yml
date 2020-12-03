@@ -1,0 +1,22 @@
+- name: copy default html file
+  tags: apache
+  copy:
+    src: default_site.html
+    dest: /home/pi/index.html
+    owner: root
+    group: root
+    mode: 0644
+
+- name: change body line in html file
+  tags: apache
+  lineinfile:
+    path: /home/pi/change.txt
+    regexp: '^Now'
+    line: Ansible is can be awesome
+
+# install packages
+
+- name: install package
+  tags: debian, ubuntu, git, unzip
+  package:
+
