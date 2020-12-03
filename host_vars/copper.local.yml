@@ -1,2 +1,5 @@
 git_package_name: git
 unzip_package_name: unzip
+ssh_users: "pi simone"
+ssh_template_file: sshd_config_pi.j2
+
