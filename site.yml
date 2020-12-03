@@ -27,10 +27,11 @@
   tasks:
 
   - name: install package
-    tags: debian, ubuntu, git
-    apt:
+    tags: debian, ubuntu, git, unzip
+    package:
       name:
         - git
+        - unzip
       state: latest
     when: ansible_distribution in ["Debian", "Ubuntu"]
 
